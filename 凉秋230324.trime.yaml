@@ -1,0 +1,1338 @@
+#欢迎加入rime输入法皮肤交流群：966868329［仙鹤养殖场］
+#😡皮肤基础功能介绍：
+#1.'AXCV'长按——全选复制粘贴剪切
+#2.Q-P下滑上滑——数字0-9
+#3.删除键上滑——提示符号
+#4.锁定键上滑——脚本启动器
+#5.符号键上滑——方案菜单，右滑——无刻键盘
+#6.回车键上滑——主题，左滑——方案助记
+#7.空格键长按——语音，上滑——助记键盘
+#8.B键长按——编辑键盘，编辑键盘中有短语、剪切板
+#9.M键长按——上屏编码
+#10.P长按——成对括号
+#11.N键长按——打开网页
+
+
+name: '凉秋' #主题名称
+author: '白焕 <bh1001@qq.com>' #作者资讯
+config_version: '221101'
+
+height:
+  A: &key_height 50 #主键高
+  B: &candidate_view_height 35 #候选区高
+  C: &top_height 4 #顶部空白高
+  D: &bottom_height 1 #底部空白高
+
+  a: &key_symbol_offset_x_height 0 #符号x
+  b: &key_symbol_offset_y_height 1 #符号y
+
+  1: &horizontal_gap 0.1 #按键左右间距
+  2: &vertical_gap 0.1 #按键上下间距
+  3: &key_border 4 #按键边框
+
+#全面屏  c=1.5E  D≈4E   F=(100-a+b)/2
+  4: &keyboards_spacing_l 1.25 #键盘左边距  1
+  5: &keyboards_spacing_r 1.25 #键盘右边距  1
+  6: &func_width 14.7 #功能键宽  14.7
+  7: &space_width 38.8 #空格宽  39
+  8: &symbol_width 9.8 #逗号句号宽
+  9: &default_width 9.8 #主键盘按键宽度  9.8
+  0: &functional_width 19.5 #功能键盘宽度  19.6
+
+#ps：因为中文对一行单数键没有优化算法，因此空格那一行会有0.5左右偏差
+
+style:
+  auto_caps: false #自动句首大写:true|false|ascii
+  background_dim_amount: 0.5
+  candidate_font: fzsong02.ttf #候选字体
+  candidate_hide_button: "⌥ " #候选栏收起、候选展开键
+  candidate_left_button: '◀' #候选栏下翻页按键
+  candidate_right_button: '▶' #候选栏上翻页按键
+  candidate_padding: 10 #候选字间距
+  candidate_spacing: 0 #候选分隔宽度
+  candidate_text_size: 16 #候选字号
+  candidate_use_cursor: true #候选高亮
+  candidate_view_height: *candidate_view_height #候选区高度
+  color_scheme: default #配色方案
+  comment_font: comment.ttf #编码字体
+  comment_height: 10 #编码区高度
+  comment_text_size: 10 #编码字号
+  comment_on_top: true #候选提示在上方或右侧
+  hanb_font: ExtB-G.ttf #候选䃼充字体（生僻字）
+  horizontal: true #悬浮窗水平模式
+  horizontal_gap: *horizontal_gap #按键左右间距
+  vertical_gap: *vertical_gap #按键上下间距
+  layout:
+    position: fixed #窗口位置：left|right|left_up|right_up|fixed|bottom_left|bottom_right|top_left|top_right(left、right需要Android5.0以上)
+    min_length: 1 #最小词长
+    max_length: 24 #超过字数则换行
+    sticky_lines: 9 #固定行数（单独显示的候选项行数）
+    sticky_lines_land: 0 #横屏模式下的固顶行数
+    max_entries: 8 #最大词条数
+    border: 0 #边框宽度
+    max_width: 50 #最大宽度，超过则自动换行
+    max_height: 30 #最大高度
+    min_width: 0 #最小宽度
+    min_height: 0 #最小高度
+    margin_x: 3 #水平边距 NOTE: margin_{x, y, bottom} 实际为 padding
+    margin_y: 3 #竖直边距
+    line_spacing: 0 #候选词的行间距(px)
+    line_spacing_multiplier: 0 #候选词的行间距(倍数)
+    spacing: 1 #键盘顶部和悬浮窗之间的距离
+    round_corner: 16 #候选窗口圆角
+    alpha: 255 #透明度(0-255)
+    elevation: 1 #阴影(>=Android5.0)
+    background: backgrounds #颜色或者backgrounds目录下的图片文档名
+    movable: false #是否可移动窗口，或仅移动一次 true|false|once
+    all_phrases: false #显示所有长词
+  window: #悬浮窗口参数
+#    - {start: '', move: 'ㄓ', end: ''}
+    - {start: ' ', composition: '%s', end: ' ', letter_spacing: 0} #letter_spacing需要Android5.0
+#    - {start: "\n", label: "%s.", candidate: " %s", comment: " %s", end: " ", sep: " "}
+  key_font: Anurati.ttf #键盘字体
+  key_height: *key_height #键高
+  key_long_text_size: 15 #长标签字号
+  key_text_size: 15 #键字号
+  key_width: *default_width #键宽占屏幕宽的百分比
+  keyboards: [.default, default, defaultmd, defaultzj, _edit_board, number, symbols, symbols2] #键盘配置：自动键盘、英文、数字、符号、符号2、无符号
+  label_text_size: 15 #标签字号，悬浮窗字号
+  label_font: label.ttf #标签字体
+  latin_font: symbol.ttf #西文字体
+  latin_locale: en_US #西文语言
+  locale: zh_CN #缺省语言 zh_TW,zh_CN,zh_HK
+  preview_font: preview.ttf #按键提示字体
+  preview_height: 10 #按键气泡高度
+  preview_offset: 10 #按键气泡纵向偏移
+  preview_text_size: 24 #按键气泡字号
+  proximity_correction: true #按键纠错
+  reset_ascii_mode: true #显示键盘时重置为中文状态
+  round_corner: 15 #按键圆角半径
+  shadow_radius: 0.0 #按键字母阴影
+  key_border: *key_border #按键边缘阴影
+  speech_opencc_config: none #语音输入简繁转换
+  symbol_font: symbol.ttf #符号字体
+  symbol_text_size: 7 #符号字号
+  text_font: symbol.ttf #编码字体
+  text_height: 10 #编码区高度
+  text_size: 18 #悬浮窗编码字号
+  vertical_correction: -10 #按键纵向偏移，负数下移接触面
+
+preset_color_schemes:
+  default:
+    name: 粉墨
+    text_color: 0xf0a6aa
+    back_color: 0x1e1e1e
+    keyboard_back_color: 0x505050
+    key_border_color: 0x08000000
+    Space_back_color: 0xf0a6aa
+    Space_text_color: 0x000000
+
+  gbqq:
+    name: 告白气球
+    text_color: 0xD77C83
+    back_color: 0x2E2B2E
+    keyboard_back_color: 0x1B1B1B
+    key_border_color: 0x08000000
+    Space_back_color: 0xD77C83
+    Space_text_color: 0x2E2B2E
+
+  b17b:
+    name: 拾起白
+    author: "白焕 <bh1001@qq.com>"
+    text_color: 0x000000
+    back_color: 0xeeeeec
+    keyboard_back_color: 0xe0e0e0
+    key_border_color: 0x03000000
+
+  b17h:
+    name: 拾起黑
+    author: "白焕 <bh1001@qq.com>"
+    text_color: 0xe6e3d8
+    back_color: 0x222222
+    keyboard_back_color: 0x333333
+    key_border_color: 0x03000000
+
+  rime:
+    name: 中州韻
+    author: "白焕 <bh1001@qq.com>"
+    text_color: 0xffffff
+    back_color: 0x37393d
+    keyboard_back_color: 0x3f4144
+    key_back_color: 0x4f5356
+    key_symbol_color: 0xeeeeee
+    key_border_color: 0x00
+    Space_back_color: 0x009bd1
+
+  white:
+    name: 纯白
+    author: "白焕 <bh1001@qq.com>"
+    text_color: 0x000000
+    back_color: 0xffffff
+
+  black:
+    name: 纯黑
+    author: "白焕 <bh1001@qq.com>"
+    text_color: 0xcfcfcf
+    back_color: 0x303030
+
+  gming:
+    name: 光明
+    author: "白焕 <bh1001@qq.com>"
+    text_color: 0x455A64 #文字
+    back_color: 0xefF5F5F5 #背景
+    keyboard_back_color: sq2.png #键盘背景
+    key_border_color: 0x08000000
+
+  heian:
+    name: 黑暗
+    author: "白焕 <bh1001@qq.com>"
+    text_color: 0xF5F5F5 #文字
+    back_color: 0x99000000 #背景
+    keyboard_back_color: sq.png #键盘背景
+    key_border_color: 0x08000000
+    comment_text_color: 0xc0034
+  ocean_theme:
+    name: 海洋／Ocean Theme
+    author: Bing <bing@bing.com>
+    text_color: 0x9acfff
+    candidate_text_color: 0xe6e3d8
+    back_color: 0x003366
+    border_color: 0x006699
+    hilited_text_color: 0xdaf692
+    hilited_back_color: 0x003366
+    hilited_candidate_text_color: 0x9acfff
+    hilited_candidate_back_color: 0x006699
+    comment_text_color: 0x888888
+    key_border_color: 0x08000000
+
+  ocean_theme2:
+    name: 海洋2／Ocean Theme2
+    author: Bing <bing@bing.com>
+    text_color: 0xe6e3d8 
+    candidate_text_color: 0x9acfff 
+    back_color: 0x006699 
+    border_color: 0x003366 
+    hilited_text_color: 0xdaf692 
+    hilited_back_color: 0x006699 
+    hilited_candidate_text_color: 0xe6e3d8
+    hilited_candidate_back_color: 0x003366
+    comment_text_color: 0x888888
+    key_border_color: 0x08000000
+
+  solarized_dark_theme: 
+    name: Solarized Dark Theme 
+    author: Bing bing@bing.com 
+    text_color: 0x839496 
+    candidate_text_color: 0x93a1a1 
+    back_color: 0x002b36 
+    border_color: 0x073642 
+    hilited_text_color: 0xb58900 
+    hilited_back_color: 0x586e75 
+    hilited_candidate_text_color: 0x839496
+    hilited_candidate_back_color: 0x073642
+    comment_text_color: 0x586e75
+    key_border_color: 0x08000000
+    
+  mssjb:
+    name: 山水间 白
+    author: "白焕 <bh1001@qq.com>"
+    text_color: 0x2C3441
+    text_back_color: 0xF5F5F5
+    back_color: 0x00
+    candidate_back_color: ming/mhxl.png
+    keyboard_back_color: ming/mbj.png
+    key_back_color: ming/m01.9.png
+    key_text_color: 0xECF3FF
+    hilited_key_back_color: ming/m02.9.png
+    Space_back_color: ming/mkgb.9.png
+    Space_text_color: 0x505968
+    hilited_Space_back_color: ming/mkga.9.png
+    Return_back_color: ming/mhcb.9.png
+    Return_text_color: 0x505968
+    hilited_Return_back_color: ming/mhca.9.png
+
+  mssjh:
+    name: 山水间 黑
+    author: "白焕 <bh1001@qq.com>"
+    text_color: 0xECF3FF
+    text_back_color: 0x232732
+    back_color: 0x00
+    candidate_back_color: ming/mahxl.png
+    keyboard_back_color: ming/mabj.png
+    key_back_color: ming/m01.9.png
+    key_text_color: 0xECF3FF
+    hilited_key_back_color: ming/m02.9.png
+    Space_back_color: ming/mkgb.9.png
+    Space_text_color: 0x505968
+    hilited_Space_back_color: ming/mkga.9.png
+    Return_back_color: ming/mhca.9.png
+    Return_text_color: 0xECF3FF
+    hilited_Return_back_color: ming/mhcb.9.png
+
+  Blackwhite:
+    name: 黎明
+    text_color: 0xbcbcbc
+    back_color: 0x000000
+    keyboard_back_color: 0x000000
+    key_border_color: 0x03000000
+    key_back_color: 0x7f673AB7
+
+    Q_back_color: 0x17673AB7
+    W_back_color: 0x2e673AB7
+    E_back_color: 0x45673AB7
+    R_back_color: 0x5c673AB7
+    T_back_color: 0x73673AB7
+    Y_back_color: 0x8b673AB7
+    U_back_color: 0xa2673AB7
+    I_back_color: 0xb9673AB7
+    O_back_color: 0xd0673AB7
+    P_back_color: 0xe7673AB7
+ 
+    A_back_color: 0x17673AB7
+    S_back_color: 0x2e673AB7
+    D_back_color: 0x45673AB7
+    F_back_color: 0x5c673AB7
+    G_back_color: 0x73673AB7
+    H_back_color: 0x8b673AB7
+    J_back_color: 0xa2673AB7
+    K_back_color: 0xb9673AB7
+    L_back_color: 0xd0673AB7
+
+#    off_key_back_color: 0x0f673AB7
+    Z_back_color: 0x17673AB7
+    X_back_color: 0x2e673AB7
+    C_back_color: 0x45673AB7
+    V_back_color: 0x5c673AB7
+    B_back_color: 0x73673AB7
+    N_back_color: 0x8b673AB7
+    M_back_color: 0xa2673AB7
+    Back_back_color: 0xd0673AB7
+
+    Symbol_back_color: 0x0a673AB7
+    Question_back_color: 0x0f673AB7
+    Comma_back_color: 0x17673AB7
+    Space_back_color: 0x45673AB7
+    Period_back_color: 0x73673AB7
+    Semicolon_back_color: 0x8b673AB7
+    Return_back_color: 0xa2673AB7
+
+  Blackwhites:
+    name: 黄昏
+    text_color: 0x000000
+    back_color: 0xffffff
+    keyboard_back_color: 0xffffff
+    key_border_color: 0x01000000
+    key_back_color: 0x7f673AB7
+
+    Q_back_color: 0x17673AB7
+    W_back_color: 0x2e673AB7
+    E_back_color: 0x45673AB7
+    R_back_color: 0x5c673AB7
+    T_back_color: 0x73673AB7
+    Y_back_color: 0x8b673AB7
+    U_back_color: 0xa2673AB7
+    I_back_color: 0xb9673AB7
+    O_back_color: 0xd0673AB7
+    P_back_color: 0xe7673AB7
+ 
+    A_back_color: 0x17673AB7
+    S_back_color: 0x2e673AB7
+    D_back_color: 0x45673AB7
+    F_back_color: 0x5c673AB7
+    G_back_color: 0x73673AB7
+    H_back_color: 0x8b673AB7
+    J_back_color: 0xa2673AB7
+    K_back_color: 0xb9673AB7
+    L_back_color: 0xd0673AB7
+
+    off_key_back_color: 0x0f673AB7
+    Z_back_color: 0x17673AB7
+    X_back_color: 0x2e673AB7
+    C_back_color: 0x45673AB7
+    V_back_color: 0x5c673AB7
+    B_back_color: 0x73673AB7
+    N_back_color: 0x8b673AB7
+    M_back_color: 0xa2673AB7
+    Back_back_color: 0xd0673AB7
+
+    Symbol_back_color: 0x0a673AB7
+    Question_back_color: 0x0f673AB7
+    Comma_back_color: 0x17673AB7
+    Space_back_color: 0x45673AB7
+    Period_back_color: 0x73673AB7
+    Semicolon_back_color: 0x8b673AB7
+    Return_back_color: 0xa2673AB7
+
+fallback_colors:
+#状态栏编码
+  border_color: back_color #悬浮边框
+  hilited_back_color: back_color #高亮编码背景
+  hilited_candidate_back_color: hilited_back_color #高亮候选背景
+  hilited_text_color: text_color #高亮提示
+  label_color: candidate_text_color #标签
+  text_back_color: back_color #编码区背景
+#状态栏
+  back_color: border_color #状态栏背景
+  candidate_separator_color: border_color #候选分隔
+  candidate_text_color: text_color #候选文字
+  hilited_candidate_text_color: hilited_text_color #高亮候选文字
+  comment_text_color: candidate_text_color #编码提示
+  hilited_comment_text_color: comment_text_color #高亮编码提示
+#shift和功能按键
+  off_key_back_color: key_back_color #shift关闭背景
+  off_key_text_color: key_text_color #shift关闭文字
+  hilited_off_key_back_color: hilited_key_back_color #高亮shift关闭背景
+  hilited_off_key_text_color: hilited_key_text_color #高亮shift关闭文字
+  on_key_back_color: hilited_key_back_color #shift开启背景
+  on_key_text_color: hilited_key_text_color #shift开启文字
+  hilited_on_key_back_color: hilited_key_back_color #高亮shift开启背景
+  hilited_on_key_text_color: hilited_key_text_color #高亮shift开启文字
+#分号
+  Semicolon_back_color: key_back_color #分号=回车
+  Semicolon_text_color: key_text_color
+  Semicolon_symbol_color: Semicolon_text_color
+  hilited_Semicolon_back_color: hilited_A_back_colo
+  hilited_Semicolon_text_color: hilited_A_text_color
+  hilited_Semicolon_Symbol_color: hilited_Semicolon_text_color
+  Semicolon_key_border_color: key_border_color
+#逗号
+  Comma_back_color: key_back_color #逗号=符号
+  Comma_text_color: key_text_color
+  Comma_symbol_color: Comma_text_color
+  hilited_Comma_back_color: Comma_text_color
+  hilited_Comma_text_color: Comma_back_color
+  hilited_Comma_Symbol_color: hilited_Comma_text_color
+  Comma_key_border_color: key_border_color
+#句号
+  Period_back_color: Comma_back_color #句号=回车
+  Period_text_color: Comma_text_color
+  Period_symbol_color: Period_text_color
+  hilited_Period_back_color: Period_text_color
+  hilited_Period_text_color: Period_back_color
+  hilited_Period_Symbol_color: hilited_Period_text_color
+  Period_key_border_color: key_border_color
+#问号
+  Question_back_color: Z_back_color #问号=符号
+  Question_text_color: Z_text_color
+  Question_symbol_color: Question_text_color
+  hilited_Question_back_color: Question_text_color
+  hilited_Question_text_color: Question_back_color
+  hilited_Question_Symbol_color: hilited_Question_text_color
+  Question_key_border_color: key_border_color
+#符号
+  Symbol_back_color: off_key_back_color #符号=shift
+  Symbol_text_color: off_key_text_color
+  Symbol_symbol_color: Symbol_text_color
+  hilited_Symbol_back_color: Symbol_text_color
+  hilited_Symbol_text_color: Symbol_back_color
+  hilited_Symbol_Symbol_color: hilited_Symbol_text_color
+  Symbol_key_border_color: key_border_color
+#空格
+  Space_back_color: key_back_color #空格=按键
+  Space_text_color: key_text_color
+  Space_symbol_color: Space_text_color
+  hilited_Space_back_color: Space_text_color
+  hilited_Space_text_color: Space_back_color
+  hilited_Space_Symbol_color: hilited_Space_text_color
+  Space_key_border_color: key_border_color
+#删除
+  Back_back_color: off_key_back_color #退格=shift
+  Back_text_color: off_key_text_color
+  hilited_Back_back_color: hilited_off_key_back_color
+  hilited_Back_text_color: hilited_off_key_text_color
+  Back_key_border_color: key_border_color
+#回车
+  Return_back_color: off_key_back_color #回车=shift
+  Return_text_color: off_key_text_color
+  Return_symbol_color: Return_text_color
+  hilited_Return_back_color: Return_text_color
+  hilited_Return_text_color: Return_back_color
+  hilited_Return_Symbol_color: hilited_Return_text_color
+  Return_key_border_color: key_border_color
+#气泡
+  preview_back_color: key_back_color #气泡背景
+  preview_text_color: key_text_color #气泡文字
+#普通按键
+  key_back_color: back_color #按键背景
+  hilited_key_back_color: hilited_candidate_back_color #高亮按键背景
+  key_border_color: border_color #按键边框
+  key_text_color: candidate_text_color #按键文字
+  hilited_key_text_color: hilited_candidate_text_color #高亮按键文字
+  shadow_color: border_color #按键文字阴影
+  key_symbol_color: key_text_color #按键符号
+  hilited_key_symbol_color: hilited_comment_text_color #高亮按键符号
+  keyboard_back_color: border_color #键盘背景
+#26键
+  Q_back_color: key_back_color
+  W_back_color: key_back_color
+  E_back_color: key_back_color
+  R_back_color: key_back_color
+  T_back_color: key_back_color
+  Y_back_color: key_back_color
+  U_back_color: key_back_color
+  I_back_color: key_back_color
+  O_back_color: key_back_color
+  P_back_color: key_back_color
+  A_back_color: key_back_color
+  S_back_color: key_back_color
+  D_back_color: key_back_color
+  F_back_color: key_back_color
+  G_back_color: key_back_color
+  H_back_color: key_back_color
+  J_back_color: key_back_color
+  K_back_color: key_back_color
+  L_back_color: key_back_color
+  Z_back_color: key_back_color
+  X_back_color: key_back_color
+  C_back_color: key_back_color
+  V_back_color: key_back_color
+  B_back_color: key_back_color
+  N_back_color: key_back_color
+  M_back_color: key_back_color
+
+  Q_text_color: key_text_color
+  W_text_color: key_text_color
+  E_text_color: key_text_color
+  R_text_color: key_text_color
+  T_text_color: key_text_color
+  Y_text_color: key_text_color
+  U_text_color: key_text_color
+  I_text_color: key_text_color
+  O_text_color: key_text_color
+  P_text_color: key_text_color
+  A_text_color: key_text_color
+  S_text_color: key_text_color
+  D_text_color: key_text_color
+  F_text_color: key_text_color
+  G_text_color: key_text_color
+  H_text_color: key_text_color
+  J_text_color: key_text_color
+  K_text_color: key_text_color
+  L_text_color: key_text_color
+  Z_text_color: key_text_color
+  X_text_color: key_text_color
+  C_text_color: key_text_color
+  V_text_color: key_text_color
+  B_text_color: key_text_color
+  N_text_color: key_text_color
+  M_text_color: key_text_color
+
+  Q_symbol_color: key_symbol_color
+  W_symbol_color: key_symbol_color
+  E_symbol_color: key_symbol_color
+  R_symbol_color: key_symbol_color
+  T_symbol_color: key_symbol_color
+  Y_symbol_color: key_symbol_color
+  U_symbol_color: key_symbol_color
+  I_symbol_color: key_symbol_color
+  O_symbol_color: key_symbol_color
+  P_symbol_color: key_symbol_color
+  A_symbol_color: key_symbol_color
+  S_symbol_color: key_symbol_color
+  D_symbol_color: key_symbol_color
+  F_symbol_color: key_symbol_color
+  G_symbol_color: key_symbol_color
+  H_symbol_color: key_symbol_color
+  J_symbol_color: key_symbol_color
+  K_symbol_color: key_symbol_color
+  L_symbol_color: key_symbol_color
+  Z_symbol_color: key_symbol_color
+  X_symbol_color: key_symbol_color
+  C_symbol_color: key_symbol_color
+  V_symbol_color: key_symbol_color
+  B_symbol_color: key_symbol_color
+  N_symbol_color: key_symbol_color
+  M_symbol_color: key_symbol_color
+
+  Q_key_border_color: key_border_color
+  W_key_border_color: key_border_color
+  E_key_border_color: key_border_color
+  R_key_border_color: key_border_color
+  T_key_border_color: key_border_color
+  Y_key_border_color: key_border_color
+  U_key_border_color: key_border_color
+  I_key_border_color: key_border_color
+  O_key_border_color: key_border_color
+  P_key_border_color: key_border_color
+  A_key_border_color: key_border_color
+  S_key_border_color: key_border_color
+  D_key_border_color: key_border_color
+  F_key_border_color: key_border_color
+  G_key_border_color: key_border_color
+  H_key_border_color: key_border_color
+  J_key_border_color: key_border_color
+  K_key_border_color: key_border_color
+  L_key_border_color: key_border_color
+  Z_key_border_color: key_border_color
+  X_key_border_color: key_border_color
+  C_key_border_color: key_border_color
+  V_key_border_color: key_border_color
+  B_key_border_color: key_border_color
+  N_key_border_color: key_border_color
+  M_key_border_color: key_border_color
+
+
+android_keys:
+  name: [VoidSymbol, SOFT_LEFT, SOFT_RIGHT, HOME, BACK, CALL, ENDCALL,
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+    asterisk, numbersign, Up, Down, Left, Right, KP_Begin,
+    VOLUME_UP, VOLUME_DOWN, POWER, CAMERA, Clear,
+    a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z,
+    comma, period, Alt_L, Alt_R, Shift_L, Shift_R, Tab, space,
+    SYM, EXPLORER, ENVELOPE, Return, BackSpace,
+    grave, minus, equal, bracketleft, bracketright, backslash, semicolon, apostrophe, slash, at,
+    NUM, HEADSETHOOK, FOCUS, plus, Menu, NOTIFICATION, Find,
+    MEDIA_PLAY_PAUSE, MEDIA_STOP, MEDIA_NEXT, MEDIA_PREVIOUS, MEDIA_REWIND, MEDIA_FAST_FORWARD, MUTE,
+    Page_Up, Page_Down, PICTSYMBOLS, Mode_switch,
+    BUTTON_A, BUTTON_B, BUTTON_C, BUTTON_X, BUTTON_Y, BUTTON_Z,
+    BUTTON_L1, BUTTON_R1, BUTTON_L2, BUTTON_R2,
+    BUTTON_THUMBL, BUTTON_THUMBR, BUTTON_START, BUTTON_SELECT, BUTTON_MODE,
+    Escape, Delete, Control_L, Control_R, Caps_Lock, Scroll_Lock, Meta_L, Meta_R,
+    function, Sys_Req, Pause, Home, End, Insert, Next,
+    MEDIA_PLAY, MEDIA_PAUSE, MEDIA_CLOSE, MEDIA_EJECT, MEDIA_RECORD,
+    F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12,
+    Num_Lock, KP_0, KP_1, KP_2, KP_3, KP_4, KP_5, KP_6, KP_7, KP_8, KP_9,
+    KP_Divide, KP_Multiply, KP_Subtract, KP_Add, KP_Decimal, KP_Separator, KP_Enter, KP_Equal,
+    parenleft, parenright,
+    VOLUME_MUTE, INFO, CHANNEL_UP, CHANNEL_DOWN, ZOOM_IN, ZOOM_OUT,
+    TV, WINDOW, GUIDE, DVR, BOOKMARK, CAPTIONS, SETTINGS,
+    TV_POWER, TV_INPUT, STB_POWER, STB_INPUT, AVR_POWER, AVR_INPUT,
+    PROG_RED, PROG_GREEN, PROG_YELLOW, PROG_BLUE, APP_SWITCH,
+    BUTTON_1, BUTTON_2, BUTTON_3, BUTTON_4, BUTTON_5, BUTTON_6, BUTTON_7, BUTTON_8,
+    BUTTON_9, BUTTON_10, BUTTON_11, BUTTON_12, BUTTON_13, BUTTON_14, BUTTON_15, BUTTON_16,
+    LANGUAGE_SWITCH, MANNER_MODE, 3D_MODE, CONTACTS, CALENDAR, MUSIC, CALCULATOR,
+    Zenkaku_Hankaku, Eisu_toggle, Muhenkan, Henkan, Hiragana_Katakana, yen, RO, Kana_Lock,
+    ASSIST, BRIGHTNESS_DOWN, BRIGHTNESS_UP, MEDIA_AUDIO_TRACK,
+    SLEEP, WAKEUP, PAIRING, MEDIA_TOP_MENU, '11', '12', LAST_CHANNEL, TV_DATA_SERVICE, VOICE_ASSIST,
+    TV_RADIO_SERVICE, TV_TELETEXT, TV_NUMBER_ENTRY, TV_TERRESTRIAL_ANALOG, TV_TERRESTRIAL_DIGITAL,
+    TV_SATELLITE, TV_SATELLITE_BS, TV_SATELLITE_CS, TV_SATELLITE_SERVICE, TV_NETWORK, TV_ANTENNA_CABLE,
+    TV_INPUT_HDMI_1, TV_INPUT_HDMI_2, TV_INPUT_HDMI_3, TV_INPUT_HDMI_4,
+    TV_INPUT_COMPOSITE_1, TV_INPUT_COMPOSITE_2, TV_INPUT_COMPONENT_1, TV_INPUT_COMPONENT_2, TV_INPUT_VGA_1,
+    TV_AUDIO_DESCRIPTION, TV_AUDIO_DESCRIPTION_MIX_UP, TV_AUDIO_DESCRIPTION_MIX_DOWN,
+    TV_ZOOM_MODE, TV_CONTENTS_MENU, TV_MEDIA_CONTEXT_MENU, TV_TIMER_PROGRAMMING,
+    Help, NAVIGATE_PREVIOUS, NAVIGATE_NEXT, NAVIGATE_IN, NAVIGATE_OUT,
+    STEM_PRIMARY, STEM_1, STEM_2, STEM_3,
+    Pointer_UpLeft, Pointer_DownLeft, Pointer_UpRight, Pointer_DownRight,
+    MEDIA_SKIP_FORWARD, MEDIA_SKIP_BACKWARD, MEDIA_STEP_FORWARD, MEDIA_STEP_BACKWARD,
+    SOFT_SLEEP, CUT, COPY, PASTE,
+    SYSTEM_NAVIGATION_UP, SYSTEM_NAVIGATION_DOWN, SYSTEM_NAVIGATION_LEFT, SYSTEM_NAVIGATION_RIGHT,
+    ALL_APPS, REFRESH, THUMBS_UP, THUMBS_DOWN, PROFILE_SWITCH,
+    A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z,
+    exclam, quotedbl, dollar, percent, ampersand, colon, less, greater, question, asciicircum, underscore, braceleft, bar, braceright, asciitilde]
+  symbols: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ!"$%&:<>?^_{|}~'
+  when:
+    ascii: 英文标签
+    paging: 翻页标签
+    has_menu: 选单标签
+    composing: 输入状态标签
+    #always: 始终
+    #hover: 滑过
+    combo: 并击
+    click: 单击
+    long_click: 长按
+    #double_click: 双按
+    swipe_left: 左滑
+    swipe_right: 右滑
+    swipe_up: 上滑
+    swipe_down: 下滑
+  property:
+    width: 宽度
+    height: 高度
+    gap: 间隔
+    preview: 按键气泡
+    hint: 按键提示
+    label: 按键标签
+    states: 状态标签
+    repeatable: 长按重复
+    functional: 功能键
+    shift_lock: Shift锁定 #ascii_long: 英文长按中文单按锁定, long: 长按锁定, click: 单按锁定
+  action:
+    command: 执行命令
+    option: 命令参数
+    select: 选择
+    toggle: 切换状态
+    send: 发送按键
+    text: 组合键
+    commit: 直接上屏
+
+preset_keys:
+  # 安卓
+  BRIGHTNESS_DOWN: {label: '亮度-', send: BRIGHTNESS_DOWN}
+  BRIGHTNESS_UP: {label: '亮度+', send: BRIGHTNESS_UP}
+  CALCULATOR: {label: '计算机', send: CALCULATOR}
+  CALENDAR: {label: '日历', send: CALENDAR}
+  CONTACTS: {label: '联系人', send: CONTACTS}
+  ENVELOPE: {label: '邮箱', send: ENVELOPE}
+  EXPLORER: {label: '浏览器', send: EXPLORER}
+  MUSIC: {label: '音乐', send: MUSIC}
+  POWER: {label: '电源', send: POWER}
+  SEARCH: {label: '查找', send: Find}
+  SLEEP: {label: '休眠', send: SLEEP}
+  VOLUME_DOWN: {label: '音量-', send: VOLUME_DOWN}
+  VOLUME_UP: {label: '音量+', send: VOLUME_UP}
+  VOLUME_MUTE: {label: '静音', send: VOLUME_MUTE}
+  VOICE_ASSIST:
+    label: "语音"
+    send: VOICE_ASSIST
+
+  # 编辑
+  Shift: {label: '選擇', functional: true, send: Shift_L, shift_lock: click}
+  Shift_L: {label: '鎖定', send: Shift_L, shift_lock: ascii_long}
+  Return: {label: '回車', send: Return}
+  BackSpace: {label: '刪除', repeatable: true, send: BackSpace}
+  Space: {repeatable: false, send: space}
+  Space1: {label: '空格', functional: true, send: space}
+  Escape: {label: '取消', functional: false, send: Escape}
+  Hide: {label: '隱藏', functional: false, send: BACK}
+  Home: {label: '行首', functional: true, send: Home}
+  Insert: {label: '插入', functional: false, send: Insert}
+  Delete: {label: '清除', functional: false, send: Delete}
+  End: {label: '行尾', functional: true, send: End}
+  Page_Up: {label: '上頁', functional: true, send: Page_Up}
+  Page_Down: {label: '下頁', functional: true, send: Page_Down}
+  Left: {label: '左', functional: false, send: Left}
+  Down: {label: '下', functional: false, send: Down}
+  Up: {label: '上', functional: false, send: Up}
+  Right: {label: '右', functional: false, send: Right}
+  Select_all: {label: '全選', functional: true, send: Control+a}
+  Cut: {label: '剪貼', functional: true, send: Control+x}
+  ClearH: {label: '清除行', functional: true, text: '{End}{Shift+Home}{Delete}'}
+  Copy: {label: '複製', functional: true, send: Control+c}
+  CopyH: {label: '拷貝行', functional: false, text: '{End}{Shift+Home}{Control+c}'}
+  Paste: {label: '粘貼', functional: true, send: Control+v}
+  Redo: {label: '重做', functional: true, send: Control+y}
+  Undo: {label: '撤回', functional: true, send: Control+z}
+  Paste_text: {label: '粘貼文本', functional: false, send: Control+Shift+Alt+v}
+  Share_text: {label: '分享文本', functional: false, send: Control+Alt+s}
+  Second: {label: '⎇2', send: 2}
+  Third: {label: '⎇3', send: 3}
+  symbol: {label: '.', functional: false, commit: '.'}
+  symbol2: {label: '_', functional: false, commit: '_'}
+  yindao: {label: '引導', functional: true, text: ';'}
+
+  # rime组合键
+  F4: {label: '方案', send: F4}
+  BackToPreviousSyllable: {label: '刪音節', send: Control+BackSpace}
+  CommitRawInput: {label: '編碼', send: Control+Return}
+  CommitScriptText: {label: '編碼', send: Shift+Return}
+  CommitComment: {label: '編碼', send: Control+Shift+Return}
+  DeleteCandidate: {label: '刪詞', send: Control+Delete}
+
+  # ━━━━━ rime状态 ━━━━━
+  Mode_switch: {toggle: ascii_mode, send: Mode_switch, states: [ 中文, 英文 ]}
+  Zenkaku_Hankaku: {toggle: full_shape, send: Mode_switch, states: [ 半角, 全角 ]}
+  Henkan: {toggle: simplification, send: Mode_switch, states: [ 繁体, 简体 ]}
+  Charset_switch: {toggle: extended_charset, send: Mode_switch, states: [ 常用, 增广 ]}
+  Punct_switch: {toggle: ascii_punct, send: Mode_switch, states: [ 。，, ．， ]}
+  Candidate_switch: {toggle: _hide_candidate, send: Mode_switch, states: [ 候选开, 候选关]}
+  Hint_switch: {toggle: _hide_key_hint, send: Mode_switch, states: [ 助记开, 助记关]}
+  Comment_switch: {toggle: _hide_comment, send: Mode_switch, states: [ 注释开, 注释关]}
+
+  # ━━━━━ rime设定 ━━━━━
+  IME_switch: {label: '🌐', send: LANGUAGE_SWITCH} #切换方案
+  Keyboard_symbols: {label: '符號', send: Eisu_toggle, select: symbols}
+  Keyboard_symbols2: {label: '更多', send: Eisu_toggle, select: symbols2}
+  Keyboard_number: {label: '數字', send: Eisu_toggle, select: number}
+  Keyboard_default: {label: '返回', send: Eisu_toggle, select: .default}
+  Keyboard_last: {label: '返回', send: Eisu_toggle, select: .last_lock}
+  Keyboard_defaultmd: {label: '无刻', send: Eisu_toggle, select: defaultmd}
+  Keyboard_defaultzj: {label: '助记', send: Eisu_toggle, select: defaultzj}
+  Color_switch: {label: '配色', send: PROG_RED}
+  Menu: {label: '方案', send: Menu}
+  Color_settings: {label: '配色', send: SETTINGS, option: 'color'}
+  Theme_settings: {label: '主題', send: SETTINGS, option: 'theme'}
+  Schema_settings: {label: '方案', send: SETTINGS, option: 'schema'}
+
+  # ━━━━━ rime命令 ━━━━━
+  Date: {label: '日期', send: function, command: date, option: 'yyyy年M月d日'}
+  ChineseDate: {label: '農曆', send: function, command: date, option: 'zh_CN@calendar=chinese'} #农历等日期(>=Android 7.0)：date 语言@calendar=历法 格式。具体參見https://developer.android.com/reference/android/icu/util/Calendar.html
+  Time: {label: '時間', send: function, command: date, option: ' HH时mm分ss秒 '}
+  Deploy: {label: '部署', send: function, command: broadcast, option: 'com.osfans.trime.deploy'}
+  Sync: {label: '同步', send: function, command: broadcast, option: 'com.osfans.trime.sync'}
+  Bhwp: {label: '網盤', send: function, command: run, option: 'bh1001.ys168.com'}
+  Feedback: {label: '反饋', send: function, command: run, option: 'https://jq.qq.com/?_wv=1027&k=580Mj6C'}
+  Search: {label: '搜索', send: function, command: run, option: 'https://cn.bing.com/'}
+  Translation: {label: '翻译', send: function, command: run, option: 'https://www.youdao.com/m/'}
+  Zisea: {label: '字海', send: function, command: run, option: 'http://Zisea.com/'}
+  Zitools: {label: '字统', send: function, command: run, option: 'https://zi.tools/'}
+
+  # ━━━━━ lua脚本命令 ━━━━━
+  _Keyboard_edit: {label: '編輯', functional: true, send: Eisu_toggle, select: _edit_board}
+  _Keyboard_clip: {label: '剪貼板', functional: true, send: Eisu_toggle, select: _clip_board}
+  _Keyboard_phrase: {label: '短語', functional: true, send: Eisu_toggle, select: _phrase_board}
+  _Keyboard_candidate: {label: '候選', functional: true, send: Eisu_toggle, select: _candidate_board}
+  _add_phrase: {label: '添加', functional: true, send: function, command: add_phrase}
+  _Keyboard_script: {label: '腳本', functional: true, send: Eisu_toggle, select: _script}
+
+preset_keyboards:
+  default:
+    name: '26键盘'
+    author: '白焕 <bh1001@qq.com>'
+    width: *default_width
+    lock: true
+    ascii_mode: 0
+#    columns: 12 #键盘列数，超过则自动换行，默认30列
+    height: *key_height
+    key_symbol_offset_x: *key_symbol_offset_x_height
+    key_symbol_offset_y: *key_symbol_offset_y_height
+    key_text_offset_x: 0
+    key_text_offset_y: 0
+    key_hint_offset_x: 0
+    key_hint_offset_y: 0
+    key_press_offset_x: 0
+    key_press_offset_y: 0
+    label_transform: uppercase #键盘qwerty字母标签大写
+    keys:
+    - {height: *top_height, width: 100}
+    - {width: *keyboards_spacing_l}
+    - {click: q, long_click: '~', swipe_up: 1, swipe_down: 1, key_back_color: Q_back_color, key_text_color: Q_text_color, key_symbol_color: Q_symbol_color, key_border_color: Q_key_border_color, key_border: *key_border}
+    - {click: w, long_click: '@', swipe_up: 2, swipe_down: 2, key_back_color: W_back_color, key_text_color: W_text_color, key_symbol_color: W_symbol_color, key_border_color: W_key_border_color, key_border: *key_border}
+    - {click: e, long_click: '#', swipe_up: 3, swipe_down: 3, key_back_color: E_back_color, key_text_color: E_text_color, key_symbol_color: E_symbol_color, key_border_color: E_key_border_color, key_border: *key_border}
+    - {click: r, long_click: '$', swipe_up: 4, swipe_down: 4, key_back_color: R_back_color, key_text_color: R_text_color, key_symbol_color: R_symbol_color, key_border_color: R_key_border_color, key_border: *key_border}
+    - {click: t, long_click: '%', swipe_up: 5, swipe_down: 5, key_back_color: T_back_color, key_text_color: T_text_color, key_symbol_color: T_symbol_color, key_border_color: T_key_border_color, key_border: *key_border}
+    - {click: y, long_click: '^', swipe_up: 6, swipe_down: 6, key_back_color: Y_back_color, key_text_color: Y_text_color, key_symbol_color: Y_symbol_color, key_border_color: Y_key_border_color, key_border: *key_border}
+    - {click: u, long_click: '&', swipe_up: 7, swipe_down: 7, key_back_color: U_back_color, key_text_color: U_text_color, key_symbol_color: U_symbol_color, key_border_color: U_key_border_color, key_border: *key_border}
+    - {click: i, long_click: '*', swipe_up: 8, swipe_down: 8, key_back_color: I_back_color, key_text_color: I_text_color, key_symbol_color: I_symbol_color, key_border_color: I_key_border_color, key_border: *key_border}
+    - {click: o, long_click: '=', swipe_up: 9, swipe_down: 9, key_back_color: O_back_color, key_text_color: O_text_color, key_symbol_color: O_symbol_color, key_border_color: O_key_border_color, key_border: *key_border}
+    - {click: p, long_click: '[]{Left}', popup: [Keyboard_default, '{}{Left}', '[]{Left}', '(){Left}'], swipe_up: 0, swipe_down: 0, key_back_color: P_back_color, key_text_color: P_text_color, key_symbol_color: P_symbol_color, key_border_color: P_key_border_color, key_border: *key_border}
+    - {width: *keyboards_spacing_r}
+
+    - {width: *keyboards_spacing_l}
+    - {click: a, long_click: Select_all, swipe_up: Select_all, key_back_color: A_back_color, key_text_color: A_text_color, key_symbol_color: A_symbol_color, key_border_color: A_key_border_color, key_border: *key_border}
+    - {click: s, long_click: '~', swipe_up: '~', key_back_color: S_back_color, key_text_color: S_text_color, key_symbol_color: S_symbol_color, key_border_color: S_key_border_color, key_border: *key_border}
+    - {click: d, long_click: '-', swipe_up: '-', key_back_color: D_back_color, key_text_color: D_text_color, key_symbol_color: D_symbol_color, key_border_color: D_key_border_color, key_border: *key_border}
+    - {click: f, long_click: '+', swipe_up: '+', key_back_color: F_back_color, key_text_color: F_text_color, key_symbol_color: F_symbol_color, key_border_color: F_key_border_color, key_border: *key_border}
+    - {click: g, long_click: '\', swipe_up: '÷', key_back_color: G_back_color, key_text_color: G_text_color, key_symbol_color: G_symbol_color, key_border_color: G_key_border_color, key_border: *key_border}
+    - {click: h, long_click: '_', swipe_up: symbol2, key_back_color: H_back_color, key_text_color: H_text_color, key_symbol_color: H_symbol_color, key_border_color: H_key_border_color, key_border: *key_border}
+    - {click: j, long_click: symbol, swipe_up: symbol, key_back_color: J_back_color, key_text_color: J_text_color, key_symbol_color: J_symbol_color, key_border_color: J_key_border_color, key_border: *key_border}
+    - {click: k, long_click: '"', swipe_up: '"', key_back_color: K_back_color, key_text_color: K_text_color, key_symbol_color: K_symbol_color, key_border_color: K_key_border_color, key_border: *key_border}
+    - {click: l, long_click: "'", swipe_up: "'", key_back_color: L_back_color, key_text_color: L_text_color, key_symbol_color: L_symbol_color, key_border_color: L_key_border_color, key_border: *key_border}
+    - {click: ';', label: '；', long_click: ':', composing: Second, key_back_color: Semicolon_back_color, key_text_color: Semicolon_text_color, key_symbol_color: Semicolon_symbol_color, hilited_back_color: hilited_Semicolon_back_color, key_border_color: Semicolon_key_border_color, width: *symbol_width, key_border: *key_border}
+    - {width: *keyboards_spacing_r}
+
+    - {width: *keyboards_spacing_l}
+    - {click: z, long_click: '`', swipe_up: '`', key_back_color: Z_back_color, key_text_color: Z_text_color, key_symbol_color: Z_symbol_color, key_border_color: Z_key_border_color, key_border: *key_border}
+    - {click: x, long_click: Cut, swipe_up: Cut, key_back_color: X_back_color, key_text_color: X_text_color, key_symbol_color: X_symbol_color, key_border_color: X_key_border_color, key_border: *key_border}
+    - {click: c, long_click: Copy, swipe_up: Copy, key_back_color: C_back_color, key_text_color: C_text_color, key_symbol_color: C_symbol_color, key_border_color: C_key_border_color, key_border: *key_border}
+    - {click: v, long_click: Paste, swipe_up: Paste, key_back_color: V_back_color, key_text_color: V_text_color, key_symbol_color: V_symbol_color, key_border_color: V_key_border_color, key_border: *key_border}
+    - {click: b, long_click: _Keyboard_edit, swipe_up: _Keyboard_edit, key_back_color: B_back_color, key_text_color: B_text_color, key_symbol_color: B_symbol_color, key_border_color: B_key_border_color, key_border: *key_border}
+    - {click: n, long_click: Search, swipe_up: Search, popup: [Translation, Zisea, Zitools, Search, Keyboard_default], key_back_color: N_back_color, key_text_color: N_text_color, key_symbol_color: N_symbol_color, key_border_color: N_key_border_color, key_border: *key_border}
+    - {click: m, long_click: CommitComment, swipe_up: CommitComment, key_back_color: M_back_color, key_text_color: M_text_color, key_symbol_color: M_symbol_color, key_border_color: M_key_border_color, key_border: *key_border}
+    - {click: ',', label: '   ，', long_click: '<', key_back_color: Comma_back_color, key_text_color: Comma_text_color, key_symbol_color: Comma_symbol_color, hilited_back_color: hilited_comma_back_color, key_border_color: Comma_key_border_color, width: *symbol_width, key_border: *key_border}
+    - {click: '.', label: '   。', long_click: '>', key_back_color: Semicolon_back_color, key_text_color: Semicolon_text_color, key_symbol_color: Semicolon_symbol_color, hilited_back_color: hilited_Semicolon_back_color, key_border_color: Semicolon_key_border_color, width: *symbol_width, key_border: *key_border}
+    - {click: '/', label: '/', long_click: '?', key_back_color: Semicolon_back_color, key_text_color: Semicolon_text_color, key_symbol_color: Semicolon_symbol_color, hilited_back_color: hilited_Semicolon_back_color, key_border_color: Semicolon_key_border_color, width: *symbol_width, key_border: *key_border}
+    - {width: *keyboards_spacing_r}
+
+    - {width: *keyboards_spacing_l}
+    - {click: Keyboard_symbols, composing: Third, swipe_right: Keyboard_defaultmd, swipe_up: Menu, long_click: Keyboard_number, key_back_color: Symbol_back_color, key_text_color: Symbol_text_color, key_symbol_color: Symbol_symbol_color, width: *func_width, key_border_color: Symbol_key_border_color, key_border: *key_border}
+    - {click: Shift_L, label: '鎖定', swipe_up: _Keyboard_script, composing: Escape, width: *func_width, key_border: *key_border}
+    - {click: Space, label: '鍵道萬古如長夜', key_text_size: 10, swipe_up: Mode_switch, swipe_left: Left, swipe_right: Right, long_click: Mode_switch, key_back_color: Space_back_color, key_text_color: Space_text_color, key_symbol_color: Space_symbol_color, hilited_back_color: hilited_Space_back_color, width: *space_width, key_border_color: Space_key_border_color, key_border: *key_border}
+    - {click: BackSpace, swipe_up: Hint_switch, key_back_color: Back_back_color, key_text_color: Back_text_color, width: *func_width, key_border_color: Back_key_border_color, key_border: *key_border}
+    - {click: Return, swipe_left: Keyboard_defaultzj, swipe_up: Theme_settings, long_click: Color_switch, key_back_color: Return_back_color, key_text_color: Return_text_color, key_symbol_color: Return_symbol_color, hilited_back_color: hilited_Return_back_color, width: *func_width, key_border_color: Return_key_border_color, key_border: *key_border}
+    - {width: *keyboards_spacing_r}
+
+    - {height: *bottom_height, width: 100}
+
+  default_land:
+    name: '横屏键盘'
+    author: '白焕 <bh1001@qq.com>'
+    ascii_mode: 0
+#    columns: 14 #鍵盤列數，超過則自動換行，默認30列
+    width: 6.6
+    height: *key_height
+    lock: true
+    label_transform: uppercase #键盘qwerty字母标签大写
+    keys:
+    - {click: '`', long_click: '~'}
+    - {click: '1', long_click: '!'}
+    - {click: '2', long_click: '@'}
+    - {click: '3', long_click: '#'}
+    - {click: '4', long_click: '$'}
+    - {click: '5', long_click: '%'}
+    - {click: '6', long_click: '^'}
+    - {click: '7', long_click: '&'}
+    - {click: '8', long_click: '*'}
+    - {click: '9', long_click: '('}
+    - {click: '0', long_click: ')'}
+    - {click: '-', long_click: '—'}
+    - {click: '=', long_click: '+'}
+    - {click: BackSpace, label: 'BackSpace', swipe_left: Escape, width: 13.2}
+
+    - {click: Tab, width: 9.9}
+    - {click: 'q'}
+    - {click: 'w'}
+    - {click: 'e'}
+    - {click: 'r'}
+    - {click: 't'}
+    - {click: 'y'}
+    - {click: 'u'}
+    - {click: 'i'}
+    - {click: 'o'}
+    - {click: 'p'}
+    - {click: '(', long_click: '['}
+    - {click: ')', long_click: ']'}
+    - {click: '\', long_click: '|', width: 9.9}
+
+    - {click: Shift_L, label: 'Caps', composing: Escape, width: 11.2}
+    - {click: 'a', long_click: Select_all}
+    - {click: 's'}
+    - {click: 'd'}
+    - {click: 'f'}
+    - {click: 'g'}
+    - {click: 'h'}
+    - {click: 'j'}
+    - {click: 'k'}
+    - {click: 'l'}
+    - {click: ';', long_click: ':'}
+    - {click: '"', long_click: "'"}
+    - {click: Return, label: 'Enter', swipe_left: Keyboard_defaultzj, long_click: Color_settings, swipe_up: Theme_settings, width: 15.2}
+
+    - {click: Mode_switch, label: 'Shift', width: 14.5}
+    - {click: 'z'}
+    - {click: 'x', long_click: Cut}
+    - {click: 'c', long_click: Copy}
+    - {click: 'v', long_click: Paste}
+    - {click: 'b', long_click: Date}
+    - {click: 'n', long_click: Time}
+    - {click: 'm'}
+    - {click: ',', long_click: '<'}
+    - {click: '.', long_click: '>'}
+    - {click: '?', long_click: '/'}
+    - {click: Mode_switch, label: 'Shift', width: 18.5}
+
+    - {click: _Keyboard_clip, long_click: Menu, width: 8.8}
+    - {click: _Keyboard_edit, long_click: Menu, width: 8.8}
+    - {click: _Keyboard_script, long_click: Menu, width: 8.8}
+    - {click: Space, label: 'Space', swipe_left: Left, swipe_right: Right, width: 37.4, long_click: Mode_switch}
+    - {click: Left, long_click: Menu, width: 8.8}
+    - {click: Up, long_click: Menu, width: 8.8}
+    - {click: Down, long_click: Menu, width: 8.8}
+    - {click: Right, long_click: Menu, width: 8.8}
+
+    - {height: *bottom_height, width: 100}
+
+  number:
+    name: '数字键盘'
+    author: '白焕 <bh1001@qq.com>'
+    ascii_mode: 1
+    key_symbol_offset_x:  *key_symbol_offset_x_height
+    key_symbol_offset_y:  *key_symbol_offset_y_height
+    key_text_offset_x: 0
+    key_text_offset_y: 0
+    key_hint_offset_x: 0
+    key_hint_offset_y: 0
+    key_press_offset_x: 0
+    key_press_offset_y: 0
+    width: *functional_width
+    height: *key_height
+    keys:
+    - {height: *top_height, width: 100}
+    - {width: *keyboards_spacing_l}
+    - {click: '+'}
+    - {click: 1}
+    - {click: 2}
+    - {click: 3}
+    - {click: Keyboard_last, long_click: Keyboard_symbols}
+    - {width: *keyboards_spacing_r}
+    - {width: *keyboards_spacing_l}
+    - {click: '-'}
+    - {click: 4}
+    - {click: 5}
+    - {click: 6}
+    - {click: BackSpace}
+    - {width: *keyboards_spacing_r}
+    - {width: *keyboards_spacing_l}
+    - {click: '*'}
+    - {click: 7}
+    - {click: 8}
+    - {click: 9}
+    - {click: Space1}
+    - {width: *keyboards_spacing_r}
+    - {width: *keyboards_spacing_l}
+    - {click: '/'}
+    - {click: '='}
+    - {click: 0}
+    - {click: '.'}
+    - {click: Return}
+    - {width: *keyboards_spacing_r}
+    - {height: *bottom_height, width: 100}
+
+  _edit_board:
+    name: '编辑键盘'
+    author: '白焕 <bh1001@qq.com>'
+    key_symbol_offset_x:  *key_symbol_offset_x_height
+    key_symbol_offset_y:  *key_symbol_offset_y_height
+    key_text_offset_x: 0
+    key_text_offset_y: 0
+    key_hint_offset_x: 0
+    key_hint_offset_y: 0
+    key_press_offset_x: 0
+    key_press_offset_y: 0
+    width: *functional_width
+    height: *key_height
+    keys:
+    - {height: *top_height, width: 100}
+    - {width: *keyboards_spacing_l}
+    - {click: Select_all}
+    - {click: Page_Up}
+    - {click: Up}
+    - {click: Page_Down}
+    - {click: Keyboard_last}
+    - {width: *keyboards_spacing_r}
+    - {width: *keyboards_spacing_l}
+    - {click: Cut}
+    - {click: Left}
+    - {click: Shift}
+    - {click: Right}
+    - {click: BackSpace}
+    - {width: *keyboards_spacing_r}
+    - {width: *keyboards_spacing_l}
+    - {click: Copy, long_click: CopyH}
+    - {click: Home}
+    - {click: Down}
+    - {click: End}
+    - {click: _Keyboard_phrase}
+    - {width: *keyboards_spacing_r}
+    - {width: *keyboards_spacing_l}
+    - {click: Paste}
+    - {click: Undo}
+    - {click: ClearH}
+    - {click: Redo}
+    - {click: _Keyboard_clip}
+    - {width: *keyboards_spacing_r}
+    - {height: *bottom_height, width: 100}
+
+  symbols:
+    name: '26符号键盘'
+    author: '白焕 <bh1001@qq.com>'
+    width: *default_width
+    lock: true
+    ascii_mode: 0
+#    columns: 12 #键盘列数，超过则自动换行，默认30列
+    height: *key_height
+    key_symbol_offset_x: *key_symbol_offset_x_height
+    key_symbol_offset_y: *key_symbol_offset_y_height
+    key_text_offset_x: 0
+    key_text_offset_y: 0
+    key_hint_offset_x: 0
+    key_hint_offset_y: 0
+    key_press_offset_x: 0
+    key_press_offset_y: 0
+    label_transform: uppercase #键盘qwerty字母标签大写
+    keys:
+    - {height: *top_height, width: 100}
+    - {width: *keyboards_spacing_l}
+    - {click: 1, key_back_color: Q_back_color, key_text_color: Q_text_color, key_symbol_color: Q_symbol_color, key_border_color: Q_key_border_color, key_border: *key_border}
+    - {click: 2, key_back_color: W_back_color, key_text_color: W_text_color, key_symbol_color: W_symbol_color, key_border_color: W_key_border_color, key_border: *key_border}
+    - {click: 3, key_back_color: E_back_color, key_text_color: E_text_color, key_symbol_color: E_symbol_color, key_border_color: E_key_border_color, key_border: *key_border}
+    - {click: 4, key_back_color: R_back_color, key_text_color: R_text_color, key_symbol_color: R_symbol_color, key_border_color: R_key_border_color, key_border: *key_border}
+    - {click: 5, key_back_color: T_back_color, key_text_color: T_text_color, key_symbol_color: T_symbol_color, key_border_color: T_key_border_color, key_border: *key_border}
+    - {click: 6, key_back_color: Y_back_color, key_text_color: Y_text_color, key_symbol_color: Y_symbol_color, key_border_color: Y_key_border_color, key_border: *key_border}
+    - {click: 7, key_back_color: U_back_color, key_text_color: U_text_color, key_symbol_color: U_symbol_color, key_border_color: U_key_border_color, key_border: *key_border}
+    - {click: 8, key_back_color: I_back_color, key_text_color: I_text_color, key_symbol_color: I_symbol_color, key_border_color: I_key_border_color, key_border: *key_border}
+    - {click: 9, key_back_color: O_back_color, key_text_color: O_text_color, key_symbol_color: O_symbol_color, key_border_color: O_key_border_color, key_border: *key_border}
+    - {click: 0, key_back_color: P_back_color, key_text_color: P_text_color, key_symbol_color: P_symbol_color, key_border_color: P_key_border_color, key_border: *key_border}
+    - {width: *keyboards_spacing_r}
+
+    - {width: *keyboards_spacing_l}
+    - {width: 5}
+    - {click: '-', key_back_color: A_back_color, key_text_color: A_text_color, key_symbol_color: A_symbol_color, key_border_color: A_key_border_color, key_border: *key_border}
+    - {click: '/', key_back_color: S_back_color, key_text_color: S_text_color, key_symbol_color: S_symbol_color, key_border_color: S_key_border_color, key_border: *key_border}
+    - {click: ':', key_back_color: D_back_color, key_text_color: D_text_color, key_symbol_color: D_symbol_color, key_border_color: D_key_border_color, key_border: *key_border}
+    - {click: '(', key_back_color: F_back_color, key_text_color: F_text_color, key_symbol_color: F_symbol_color, key_border_color: F_key_border_color, key_border: *key_border}
+    - {click: ')', key_back_color: G_back_color, key_text_color: G_text_color, key_symbol_color: G_symbol_color, key_border_color: G_key_border_color, key_border: *key_border}
+    - {click: '%', key_back_color: H_back_color, key_text_color: H_text_color, key_symbol_color: H_symbol_color, key_border_color: H_key_border_color, key_border: *key_border}
+    - {click: '@', key_back_color: J_back_color, key_text_color: J_text_color, key_symbol_color: J_symbol_color, key_border_color: J_key_border_color, key_border: *key_border}
+    - {click: '“”{Left}', ascii: '"', key_back_color: K_back_color, key_text_color: K_text_color, key_symbol_color: K_symbol_color, key_border_color: K_key_border_color, key_border: *key_border}
+    - {click: "‘’{Left}", ascii: "'", key_back_color: L_back_color, key_text_color: L_text_color, key_symbol_color: L_symbol_color, key_border_color: L_key_border_color, key_border: *key_border}
+    - {width: 5}
+    - {width: *keyboards_spacing_r}
+
+    - {width: *keyboards_spacing_l}
+    - {click: Keyboard_symbols2, swipe_up: _Keyboard_script, composing: Escape, width: *func_width}
+    - {click: '…', ascii: '^', key_back_color: Z_back_color, key_text_color: Z_text_color, key_symbol_color: Z_symbol_color, key_border_color: Z_key_border_color, key_border: *key_border}
+    - {click: '—', key_back_color: X_back_color, key_text_color: X_text_color, key_symbol_color: X_symbol_color, key_border_color: X_key_border_color, key_border: *key_border}
+    - {click: '～', key_back_color: C_back_color, key_text_color: C_text_color, key_symbol_color: C_symbol_color, key_border_color: C_key_border_color, key_border: *key_border}
+    - {click: '、', key_back_color: V_back_color, key_text_color: V_text_color, key_symbol_color: V_symbol_color, key_border_color: V_key_border_color, key_border: *key_border}
+    - {click: '?', key_back_color: B_back_color, key_text_color: B_text_color, key_symbol_color: B_symbol_color, key_border_color: B_key_border_color, key_border: *key_border}
+    - {click: '!', key_back_color: N_back_color, key_text_color: N_text_color, key_symbol_color: N_symbol_color, key_border_color: N_key_border_color, key_border: *key_border}
+    - {click: symbol, key_back_color: M_back_color, key_text_color: M_text_color, key_symbol_color: M_symbol_color, key_border_color: M_key_border_color, key_border: *key_border}
+    - {click: BackSpace, swipe_up: Hint_switch, key_back_color: Back_back_color, key_text_color: Back_text_color, width: *func_width, key_border_color: Back_key_border_color, key_border: *key_border}
+    - {width: *keyboards_spacing_r}
+
+    - {width: *keyboards_spacing_l}
+    - {click: Keyboard_default, composing: Third, swipe_right: Keyboard_defaultmd, swipe_up: Menu, long_click: Keyboard_number, key_back_color: Symbol_back_color, key_text_color: Symbol_text_color, key_symbol_color: Symbol_symbol_color, width: *func_width, key_border_color: Symbol_key_border_color, key_border: *key_border}
+    - {click: ',', label: '   ，', long_click: '.', key_back_color: Comma_back_color, key_text_color: Comma_text_color, key_symbol_color: Comma_symbol_color, hilited_back_color: hilited_comma_back_color, key_border_color: Comma_key_border_color, width: *symbol_width, key_border: *key_border}
+    - {click: Space, label: '鍵道萬古如長夜', key_text_size: 10, swipe_up: Mode_switch, swipe_left: Left, swipe_right: Right, long_click: Mode_switch, key_back_color: Space_back_color, key_text_color: Space_text_color, key_symbol_color: Space_symbol_color, hilited_back_color: hilited_Space_back_color, width: *space_width, key_border_color: Space_key_border_color, key_border: *key_border}
+    - {click: ';', label: '；', long_click: '?', composing: Second, key_back_color: Semicolon_back_color, key_text_color: Semicolon_text_color, key_symbol_color: Semicolon_symbol_color, hilited_back_color: hilited_Semicolon_back_color, key_border_color: Semicolon_key_border_color, width: *symbol_width, key_border: *key_border}
+    - {click: Return, swipe_left: Keyboard_defaultzj, swipe_up: Theme_settings, long_click: Color_switch, key_back_color: Return_back_color, key_text_color: Return_text_color, key_symbol_color: Return_symbol_color, hilited_back_color: hilited_Return_back_color, width: *func_width, key_border_color: Return_key_border_color, key_border: *key_border}
+    - {width: *keyboards_spacing_r}
+
+    - {height: *bottom_height, width: 100}
+
+  symbols2:
+    name: '26符号键盘'
+    author: '白焕 <bh1001@qq.com>'
+    width: *default_width
+    lock: true
+    ascii_mode: 0
+#    columns: 12 #键盘列数，超过则自动换行，默认30列
+    height: *key_height
+    key_symbol_offset_x: *key_symbol_offset_x_height
+    key_symbol_offset_y: *key_symbol_offset_y_height
+    key_text_offset_x: 0
+    key_text_offset_y: 0
+    key_hint_offset_x: 0
+    key_hint_offset_y: 0
+    key_press_offset_x: 0
+    key_press_offset_y: 0
+    label_transform: uppercase #键盘qwerty字母标签大写
+    keys:
+    - {height: *top_height, width: 100}
+    - {width: *keyboards_spacing_l}
+    - {click: '【', label: '【  ', key_back_color: Q_back_color, key_text_color: Q_text_color, key_symbol_color: Q_symbol_color, key_border_color: Q_key_border_color, key_border: *key_border}
+    - {click: '】', label: '  】', key_back_color: W_back_color, key_text_color: W_text_color, key_symbol_color: W_symbol_color, key_border_color: W_key_border_color, key_border: *key_border}
+    - {click: '〈', label: '〈  ', key_back_color: E_back_color, key_text_color: E_text_color, key_symbol_color: E_symbol_color, key_border_color: E_key_border_color, key_border: *key_border}
+    - {click: '〉', label: '  〉', key_back_color: R_back_color, key_text_color: R_text_color, key_symbol_color: R_symbol_color, key_border_color: R_key_border_color, key_border: *key_border}
+    - {click: '{', label: '｛  ', key_back_color: T_back_color, key_text_color: T_text_color, key_symbol_color: T_symbol_color, key_border_color: T_key_border_color, key_border: *key_border}
+    - {click: '}', label: '  ｝', key_back_color: Y_back_color, key_text_color: Y_text_color, key_symbol_color: Y_symbol_color, key_border_color: Y_key_border_color, key_border: *key_border}
+    - {click: '#', key_back_color: U_back_color, key_text_color: U_text_color, key_symbol_color: U_symbol_color, key_border_color: U_key_border_color, key_border: *key_border}
+    - {click: '*', key_back_color: I_back_color, key_text_color: I_text_color, key_symbol_color: I_symbol_color, key_border_color: I_key_border_color, key_border: *key_border}
+    - {click: '+', key_back_color: O_back_color, key_text_color: O_text_color, key_symbol_color: O_symbol_color, key_border_color: O_key_border_color, key_border: *key_border}
+    - {click: '=', key_back_color: P_back_color, key_text_color: P_text_color, key_symbol_color: P_symbol_color, key_border_color: P_key_border_color, key_border: *key_border}
+    - {width: *keyboards_spacing_r}
+
+    - {width: *keyboards_spacing_l}
+    - {width: 5}
+    - {click: symbol2, key_back_color: A_back_color, key_text_color: A_text_color, key_symbol_color: A_symbol_color, key_border_color: A_key_border_color, key_border: *key_border}
+    - {click: '\', key_back_color: S_back_color, key_text_color: S_text_color, key_symbol_color: S_symbol_color, key_border_color: S_key_border_color, key_border: *key_border}
+    - {click: '|', key_back_color: D_back_color, key_text_color: D_text_color, key_symbol_color: D_symbol_color, key_border_color: D_key_border_color, key_border: *key_border}
+    - {click: '[', label: '［  ', key_back_color: F_back_color, key_text_color: F_text_color, key_symbol_color: F_symbol_color, key_border_color: F_key_border_color, key_border: *key_border}
+    - {click: ']', label: '  ］', key_back_color: G_back_color, key_text_color: G_text_color, key_symbol_color: G_symbol_color, key_border_color: G_key_border_color, key_border: *key_border}
+    - {click: '¥', key_back_color: H_back_color, key_text_color: H_text_color, key_symbol_color: H_symbol_color, key_border_color: H_key_border_color, key_border: *key_border}
+    - {click: '$', key_back_color: J_back_color, key_text_color: J_text_color, key_symbol_color: J_symbol_color, key_border_color: J_key_border_color, key_border: *key_border}
+    - {click: '&', key_back_color: K_back_color, key_text_color: K_text_color, key_symbol_color: K_symbol_color, key_border_color: K_key_border_color, key_border: *key_border}
+    - {click: "·", key_back_color: L_back_color, key_text_color: L_text_color, key_symbol_color: L_symbol_color, key_border_color: L_key_border_color, key_border: *key_border}
+    - {width: 5}
+    - {width: *keyboards_spacing_r}
+
+    - {width: *keyboards_spacing_l}
+    - {click: Keyboard_symbols, swipe_up: _Keyboard_script, composing: Escape, width: *func_width}
+    - {click: '`', key_back_color: Z_back_color, key_text_color: Z_text_color, key_symbol_color: Z_symbol_color, key_border_color: Z_key_border_color, key_border: *key_border}
+    - {click: 'ˇ', key_back_color: X_back_color, key_text_color: X_text_color, key_symbol_color: X_symbol_color, key_border_color: X_key_border_color, key_border: *key_border}
+    - {click: '<', label: '《  ', key_back_color: C_back_color, key_text_color: C_text_color, key_symbol_color: C_symbol_color, key_border_color: C_key_border_color, key_border: *key_border}
+    - {click: '>', label: '  》', key_back_color: V_back_color, key_text_color: V_text_color, key_symbol_color: V_symbol_color, key_border_color: V_key_border_color, key_border: *key_border}
+    - {click: '€', key_back_color: B_back_color, key_text_color: B_text_color, key_symbol_color: B_symbol_color, key_border_color: B_key_border_color, key_border: *key_border}
+    - {click: '£', key_back_color: N_back_color, key_text_color: N_text_color, key_symbol_color: N_symbol_color, key_border_color: N_key_border_color, key_border: *key_border}
+    - {click: '₤', key_back_color: M_back_color, key_text_color: M_text_color, key_symbol_color: M_symbol_color, key_border_color: M_key_border_color, key_border: *key_border}
+    - {click: BackSpace, swipe_up: Hint_switch, key_back_color: Back_back_color, key_text_color: Back_text_color, width: *func_width, key_border_color: Back_key_border_color, key_border: *key_border}
+    - {width: *keyboards_spacing_r}
+
+    - {width: *keyboards_spacing_l}
+    - {click: Keyboard_default, composing: Third, swipe_right: Keyboard_defaultmd, swipe_up: Menu, long_click: Keyboard_number, key_back_color: Symbol_back_color, key_text_color: Symbol_text_color, key_symbol_color: Symbol_symbol_color, width: *func_width, key_border_color: Symbol_key_border_color, key_border: *key_border}
+    - {click: ',', label: '   ，', long_click: '.', key_back_color: Comma_back_color, key_text_color: Comma_text_color, key_symbol_color: Comma_symbol_color, hilited_back_color: hilited_comma_back_color, key_border_color: Comma_key_border_color, width: *symbol_width, key_border: *key_border}
+    - {click: Space, label: '鍵道萬古如長夜', key_text_size: 10, swipe_up: Mode_switch, swipe_left: Left, swipe_right: Right, long_click: Mode_switch, key_back_color: Space_back_color, key_text_color: Space_text_color, key_symbol_color: Space_symbol_color, hilited_back_color: hilited_Space_back_color, width: *space_width, key_border_color: Space_key_border_color, key_border: *key_border}
+    - {click: ';', label: '；', long_click: '?', composing: Second, key_back_color: Semicolon_back_color, key_text_color: Semicolon_text_color, key_symbol_color: Semicolon_symbol_color, hilited_back_color: hilited_Semicolon_back_color, key_border_color: Semicolon_key_border_color, width: *symbol_width, key_border: *key_border}
+    - {click: Return, swipe_left: Keyboard_defaultzj, swipe_up: Theme_settings, long_click: Color_switch, key_back_color: Return_back_color, key_text_color: Return_text_color, key_symbol_color: Return_symbol_color, hilited_back_color: hilited_Return_back_color, width: *func_width, key_border_color: Return_key_border_color, key_border: *key_border}
+    - {width: *keyboards_spacing_r}
+
+    - {height: *bottom_height, width: 100}
+
+  defaultmd:
+    name: '无刻键盘'
+    author: '白焕 <bh1001@qq.com>'
+    lock: true
+    __include: /preset_keyboards/default
+    __patch:
+        'keys/@38*/swipe_right': Keyboard_default
+        'keys/@0/key_text_color': 0x00
+        'keys/@1/key_text_color': 0x00
+        'keys/@2/key_text_color': 0x00
+        'keys/@3/key_text_color': 0x00
+        'keys/@4/key_text_color': 0x00
+        'keys/@5/key_text_color': 0x00
+        'keys/@6/key_text_color': 0x00
+        'keys/@7/key_text_color': 0x00
+        'keys/@8/key_text_color': 0x00
+        'keys/@9/key_text_color': 0x00
+
+        'keys/@10/key_text_color': 0x00
+        'keys/@11/key_text_color': 0x00
+        'keys/@12/key_text_color': 0x00
+        'keys/@13/key_text_color': 0x00
+        'keys/@14/key_text_color': 0x00
+        'keys/@15/key_text_color': 0x00
+        'keys/@16/key_text_color': 0x00
+        'keys/@17/key_text_color': 0x00
+        'keys/@18/key_text_color': 0x00
+        'keys/@19/key_text_color': 0x00
+        'keys/@20/key_text_color': 0x00
+
+        'keys/@21/key_text_color': 0x00
+        'keys/@22/key_text_color': 0x00
+        'keys/@23/key_text_color': 0x00
+        'keys/@24/key_text_color': 0x00
+        'keys/@25/key_text_color': 0x00
+        'keys/@26/key_text_color': 0x00
+        'keys/@27/key_text_color': 0x00
+        'keys/@28/key_text_color': 0x00
+        'keys/@29/key_text_color': 0x00
+        'keys/@30/key_text_color': 0x00
+        'keys/@31/key_text_color': 0x00
+
+        'keys/@32/key_text_color': 0x00
+        'keys/@33/key_text_color': 0x00
+        'keys/@34/key_text_color': 0x00
+        'keys/@35/key_text_color': 0x00
+        'keys/@36/key_text_color': 0x00
+        'keys/@37/key_text_color': 0x00
+        'keys/@38/key_text_color': 0x00
+        'keys/@39/key_text_color': 0x00
+        'keys/@40/key_text_color': 0x00
+        'keys/@41/key_text_color': 0x00
+        'keys/@42/key_text_color': 0x00
+        'keys/@43/key_text_color': 0x00
+        'keys/@44/key_text_color': 0x00
+
+        'keys/@0/key_symbol_color': 0x00
+        'keys/@1/key_symbol_color': 0x00
+        'keys/@2/key_symbol_color': 0x00
+        'keys/@3/key_symbol_color': 0x00
+        'keys/@4/key_symbol_color': 0x00
+        'keys/@5/key_symbol_color': 0x00
+        'keys/@6/key_symbol_color': 0x00
+        'keys/@7/key_symbol_color': 0x00
+        'keys/@8/key_symbol_color': 0x00
+        'keys/@9/key_symbol_color': 0x00
+
+        'keys/@10/key_symbol_color': 0x00
+        'keys/@11/key_symbol_color': 0x00
+        'keys/@12/key_symbol_color': 0x00
+        'keys/@13/key_symbol_color': 0x00
+        'keys/@14/key_symbol_color': 0x00
+        'keys/@15/key_symbol_color': 0x00
+        'keys/@16/key_symbol_color': 0x00
+        'keys/@17/key_symbol_color': 0x00
+        'keys/@18/key_symbol_color': 0x00
+        'keys/@19/key_symbol_color': 0x00
+        'keys/@20/key_symbol_color': 0x00
+
+        'keys/@21/key_symbol_color': 0x00
+        'keys/@22/key_symbol_color': 0x00
+        'keys/@23/key_symbol_color': 0x00
+        'keys/@24/key_symbol_color': 0x00
+        'keys/@25/key_symbol_color': 0x00
+        'keys/@26/key_symbol_color': 0x00
+        'keys/@27/key_symbol_color': 0x00
+        'keys/@28/key_symbol_color': 0x00
+        'keys/@29/key_symbol_color': 0x00
+        'keys/@30/key_symbol_color': 0x00
+        'keys/@31/key_symbol_color': 0x00
+
+        'keys/@32/key_symbol_color': 0x00
+        'keys/@33/key_symbol_color': 0x00
+        'keys/@34/key_symbol_color': 0x00
+        'keys/@35/key_symbol_color': 0x00
+        'keys/@36/key_symbol_color': 0x00
+        'keys/@37/key_symbol_color': 0x00
+        'keys/@38/key_symbol_color': 0x00
+        'keys/@39/key_symbol_color': 0x00
+        'keys/@40/key_symbol_color': 0x00
+        'keys/@41/key_symbol_color': 0x00
+        'keys/@42/key_symbol_color': 0x00
+        'keys/@43/key_symbol_color': 0x00
+        'keys/@44/key_symbol_color': 0x00
+
+  defaultzj:
+    name: '助记键盘'
+    author: '白焕 <bh1001@qq.com>'
+    lock: true
+    __include: /preset_keyboards/default
+    __patch:
+        'keys/@2/key_back_color': zhuji/q.png
+        'keys/@3/key_back_color': zhuji/w.png
+        'keys/@4/key_back_color': zhuji/e.png
+        'keys/@5/key_back_color': zhuji/r.png
+        'keys/@6/key_back_color': zhuji/t.png
+        'keys/@7/key_back_color': zhuji/y.png
+        'keys/@8/key_back_color': zhuji/u.png
+        'keys/@9/key_back_color': zhuji/i.png
+        'keys/@10/key_back_color': zhuji/o.png
+        'keys/@11/key_back_color': zhuji/p.png
+
+        'keys/@15/key_back_color': zhuji/a.png
+        'keys/@16/key_back_color': zhuji/s.png
+        'keys/@17/key_back_color': zhuji/d.png
+        'keys/@18/key_back_color': zhuji/f.png
+        'keys/@19/key_back_color': zhuji/g.png
+        'keys/@20/key_back_color': zhuji/h.png
+        'keys/@21/key_back_color': zhuji/j.png
+        'keys/@22/key_back_color': zhuji/k.png
+        'keys/@23/key_back_color': zhuji/l.png
+
+        'keys/@28/key_back_color': zhuji/z.png
+        'keys/@29/key_back_color': zhuji/x.png
+        'keys/@30/key_back_color': zhuji/c.png
+        'keys/@31/key_back_color': zhuji/v.png
+        'keys/@32/key_back_color': zhuji/b.png
+        'keys/@33/key_back_color': zhuji/n.png
+        'keys/@34/key_back_color': zhuji/m.png
+        'keys/@44/swipe_left': Keyboard_default
+
+        'keys/@2/key_text_color': 0x00
+        'keys/@3/key_text_color': 0x00
+        'keys/@4/key_text_color': 0x00
+        'keys/@5/key_text_color': 0x00
+        'keys/@6/key_text_color': 0x00
+        'keys/@7/key_text_color': 0x00
+        'keys/@8/key_text_color': 0x00
+        'keys/@9/key_text_color': 0x00
+        'keys/@10/key_text_color': 0x00
+        'keys/@11/key_text_color': 0x00
+
+        'keys/@15/key_text_color': 0x00
+        'keys/@16/key_text_color': 0x00
+        'keys/@17/key_text_color': 0x00
+        'keys/@18/key_text_color': 0x00
+        'keys/@19/key_text_color': 0x00
+        'keys/@20/key_text_color': 0x00
+        'keys/@21/key_text_color': 0x00
+        'keys/@22/key_text_color': 0x00
+        'keys/@23/key_text_color': 0x00
+
+        'keys/@28/key_text_color': 0x00
+        'keys/@29/key_text_color': 0x00
+        'keys/@30/key_text_color': 0x00
+        'keys/@31/key_text_color': 0x00
+        'keys/@32/key_text_color': 0x00
+        'keys/@33/key_text_color': 0x00
+        'keys/@34/key_text_color': 0x00
+
+        'keys/@2/key_symbol_color': 0x00
+        'keys/@3/key_symbol_color': 0x00
+        'keys/@4/key_symbol_color': 0x00
+        'keys/@5/key_symbol_color': 0x00
+        'keys/@6/key_symbol_color': 0x00
+        'keys/@7/key_symbol_color': 0x00
+        'keys/@8/key_symbol_color': 0x00
+        'keys/@9/key_symbol_color': 0x00
+        'keys/@10/key_symbol_color': 0x00
+        'keys/@11/key_symbol_color': 0x00
+
+        'keys/@15/key_symbol_color': 0x00
+        'keys/@16/key_symbol_color': 0x00
+        'keys/@17/key_symbol_color': 0x00
+        'keys/@18/key_symbol_color': 0x00
+        'keys/@19/key_symbol_color': 0x00
+        'keys/@20/key_symbol_color': 0x00
+        'keys/@21/key_symbol_color': 0x00
+        'keys/@22/key_symbol_color': 0x00
+        'keys/@23/key_symbol_color': 0x00
+
+        'keys/@28/key_symbol_color': 0x00
+        'keys/@29/key_symbol_color': 0x00
+        'keys/@30/key_symbol_color': 0x00
+        'keys/@31/key_symbol_color': 0x00
+        'keys/@32/key_symbol_color': 0x00
+        'keys/@33/key_symbol_color': 0x00
+        'keys/@34/key_symbol_color': 0x00
